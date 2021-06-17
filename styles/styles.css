@@ -1,1 +1,34 @@
-/* hello */
+body{
+    background-color: rgb(19, 79, 79) !important; 
+}
+
+#game_screen{ 
+    border: 2px solid black; 
+    width: 800px; 
+    height: 800px;
+    margin: auto; 
+    background-color: white; 
+    margin-top: 20rem;  
+}
+
+#game_keypad{
+    border: 2px solid black; 
+    width: 800px; 
+    height: 800px; 
+    margin: auto; 
+    background-color: aqua;  
+    margin-bottom: 20rem; 
+    border-bottom-left-radius: 30%; 
+    border-bottom-right-radius: 30%; 
+}
+
+#pet {
+    left: 50%; 
+}
+
+ul li{
+    display: inline-flex; 
+}
+h3{
+    display: inline; 
+}
