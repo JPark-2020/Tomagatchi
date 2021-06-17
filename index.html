@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomagatchi</title>
+
+    <!-- Scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="game_screen">
+        <!-- Pet Name + Age -->
+        <div>
+            <p>Pet Name:</p>
+            <p>Pet Age:</p>
+        </div>
+        <!-- Pet Image -->
+        <div>
+            <i id="pet" class="nes-octocat animate" width="200px" height="200px"></i>
+        </div>
+        <!-- Pet Metrics -->
+        <div>
+            <h3>Food</h3>
+            <ul>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Rest</h3>
+            <ul>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Happiness</h3>
+            <ul>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+                <li><i class="nes-icon is-small heart"></i></li>
+            </ul>
+        </div>
+        <!-- Pet Morph Meter -->
+        <div>
+            <progress class="nes-progress is-error" value="10" max="100"></progress>
+        </div>
+
+    </div>
+
+    <div id="game_keypad">
+        <button id="power_button"><i class="fa fa-power-off" style="font-size:24px"></i></button>
+        <div class="user_inputs">
+            <!-- Feed Button -->
+            <button id="feed_button"><i class="fa fa-cutlery" aria-hidden="true"></i></button>
+            <!-- Lights Button -->
+            <button id="light_button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+            <!-- Play Button -->
+            <button id="play_button"><i class="fa fa-paw" aria-hidden="true"></i></button>
+            <!--Morph Button-->
+            <button id="play_button"><i class="fa fa-question" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+</body>
+</html>
+
