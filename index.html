@@ -17,121 +17,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- <div id="chatbox">
 
-    </div> -->
-    <div id="console">
-        <div id="game_screen_container" class="on">
-            <!-- user names pet here -->
-            <section class="name_pet">
-                <form>
-                    <div class="name-box-content">
-                        <h3 class="pre-game">Name your pet</h3>
-                        <input id="get_name" type="text"/>
-                        <button id="name_button">Enter</button>
-                    </div>
-                </form>
-            </section>
+    <div id="game_screen_container" class="on">
+        <!-- user names pet here -->
+        <section class="name_pet">
+            <form>
+                <div class="name-box-content">
+                    <h3 class="pre-game">Name your pet</h3>
+                    <input id="get_name" type="text"/>
+                    <button id="name_button">Enter</button>
+                </div>
+            </form>
+        </section>
 
-            <div id="game_screen">
-                <!-- Pet Morph Meter -->
-                <progress class="nes-progress is-error" value="1" max="100"></progress>
-                <!-- Pet Name + Age -->
-                <h1 id="deathmessage"></h1>
-                <div class="petInfo">
-                    &nbsp;<p>Name:<span id="pet_name"></span></p>
-                    &nbsp;<p>Age:<span id="pet_age"></span></p>
-                </div>
-                <!-- Pet Image -->
-                <div class="petObject">
-                    <i id="pet" class="nes-pokeball"></i>
-                    <i id="food" class="nes-icon coin is-large"></i>
-                    
-                </div>
-                <ul class="successIcons">
-                    
-                </ul>
-                <!-- Pet Metrics -->
-                <div class="pet_meters">
-                    
-                    <ul class="food_meter"> 
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                    </ul>
-                
-                    <ul class="rest_meter">
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                    </ul>
-                
-                    <ul class="happy_meter">
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paw" aria-hidden="true"></i></li>
-                    </ul>
-                </div>
+        <div id="game_screen">
+            <!-- Pet Morph Meter -->
+            <progress class="nes-progress is-error" value="1" max="100"></progress>
+
+            <!-- Pet Name + Age -->
+            <h1 id="deathmessage"></h1>
+            <div class="petInfo">
+                &nbsp;<p>Name:<span id="pet_name"></span></p>
+                &nbsp;<p>Age:<span id="pet_age"></span></p>
             </div>
-        </div>
 
-        <div id="game_keypad">
-            <div>
-                <button id="power_button"><i class="fa fa-power-off"></i></button>
-            </div>
-            <!-- Feed Button -->
-            <div>
-                <button id="feed_button"><i class="fa fa-cutlery" aria-hidden="true"></i></button>
+            <!-- Pet Image -->
+            <div class="petObject">
+                <i id="pet" class="nes-pokeball"></i>
+                <i id="food" class="nes-icon coin is-large"></i>
+                
             </div>
             
-            <!-- Lights Button -->
-            <div>
-                <button id="light_button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
-            </div>
-            
-            <!-- Play Button -->
-            <div>
-                <button id="play_button"><i class="fa fa-paw" aria-hidden="true"></i></button>
-            </div>
-            <!--Morph Button-->
-            <div>
-                <button id="morph_button"><i class="fa fa-question" aria-hidden="true"></i></button>
-            </div>
-
-            <!-- Soundbox -->
-            <div id="soundbox">
-                <ul>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                </ul>
+            <!-- For trophies on success -->
+            <ul class="successIcons">
                 
-                <ul>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                </ul>
+            </ul>
 
-                <ul>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+            <!-- Pet Metrics -->
+            <div class="pet_meters">
+                
+                <ul class="food_meter"> 
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                </ul>
+            
+                <ul class="rest_meter">
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                </ul>
+            
+                <ul class="happy_meter">
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-paw" aria-hidden="true"></i></li>
                 </ul>
             </div>
-
         </div>
+    </div>
+
+    <!-- Bottom Half -->
+    <div id="game_keypad">
+        <!-- Power button -->
+        <div>
+            <button id="power_button"><i class="fa fa-power-off"></i></button>
+        </div>
+        <!-- Feed Button -->
+        <div>
+            <button id="feed_button"><i class="fa fa-cutlery" aria-hidden="true"></i></button>
+        </div>
+        
+        <!-- Lights Button -->
+        <div>
+            <button id="light_button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+        </div>
+        
+        <!-- Play Button -->
+        <div>
+            <button id="play_button"><i class="fa fa-paw" aria-hidden="true"></i></button>
+        </div>
+        <!--Extra Button for symmetry-->
+        <div>
+            <button id="morph_button"><i class="fa fa-question" aria-hidden="true"></i></button>
+        </div>
+
+        <!-- Soundbox -->
+        <div id="soundbox">
+            <ul>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+            </ul>
+            
+            <ul>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+            </ul>
+
+            <ul>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+                <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+
     </div>
 </body>
 </html>
