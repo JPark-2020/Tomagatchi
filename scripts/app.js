@@ -31,6 +31,7 @@ const pet = {
 
 const start = function(){
 
+// BOUNCE Animation
     const bounceFunction = function(){
         if(pet.age == 101 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
             clearInterval(bounceID);
@@ -52,144 +53,168 @@ const start = function(){
     }
     const bounceID = setInterval(bounceFunction, 800);
     setTimeout(bounceFunction, 120000);
-// Age Function
 
-const ageFunction = function() {
-    $(".nes-progress").attr('value', pet.age);
-    if(pet.age == 101 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
-        clearInterval(ageID);
-    }
-    // Increase pet age until no longer < 50 
-    else if(pet.age<50){
-        pet.age++;
-        $("#pet_age").text(pet.age); 
-    // Increase pet age until < 100 and change pet into ash upon >= 50 
-    } else if(pet.age >= 50 && pet.age < 100){
-        pet.age++;
-        $("#pet_age").text(pet.age);
-        $("#pet").attr('class', "nes-ash");
-    // At end change ash to Mario + display success message 
-    } else {
-        $("#pet_age").text(pet.age);
-        $("#pet").attr('class', "nes-mario");
-        $("#deathmessage").text("Success - You did it!");
-        $(".successIcons").append(successIcon);
-        $(".successIcons").append(successIcon);
-        $(".successIcons").append(successIcon);
-        clearInterval(ageID);
+// AGE Function
+    const ageFunction = function() {
+
+        $(".nes-progress").attr('value', pet.age);
+
+        if(pet.age == 101 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+            clearInterval(ageID);
         }
+        // Increase pet age until no longer < 50 
+        else if(pet.age<50){
+            pet.age++;
+            $("#pet_age").text(pet.age); 
+        }
+        // Increase pet age until < 100 and change pet into ash upon >= 50 
+        else if(pet.age >= 50 && pet.age < 100){
+            pet.age++;
+            $("#pet_age").text(pet.age);
+            $("#pet").attr('class', "nes-ash");
+        }
+        // At end change ash to Mario + display success message 
+        else {
+            $("#pet_age").text(pet.age);
+            $("#pet").attr('class', "nes-mario");
+            $("#deathmessage").text("Success - You did it!");
+            $(".successIcons").append(successIcon);
+            $(".successIcons").append(successIcon);
+            $(".successIcons").append(successIcon);
+            clearInterval(ageID);
+            }
     };
 
-const ageID = setInterval(ageFunction, 100);
+    const ageID = setInterval(ageFunction, 100);
 
 
 // HAPPINESS
-const happyFunction = function() {
-    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
-        clearInterval(happyID);
-        if(pet.happiness === 0){
-            $("#deathmessage").text("Game Over: Much sadness");
-            $("#pet").attr('class', "nes-icon close is-large");
+    const happyFunction = function() {
+        
+        if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+            clearInterval(happyID);
+            
+            if(pet.happiness === 0){
+                $("#deathmessage").text("Game Over: Much sadness");
+                $("#pet").attr('class', "nes-icon close is-large");
+            }
 
+            else if(pet.happiness === 11){
+                $("#deathmessage").text("Game Over: Adrenaline Rush");
+                $("#pet").attr('class', "nes-icon close is-large");
+            };
         }
-        else if(pet.happiness === 11){
-            $("#deathmessage").text("Game Over: Adrenaline Rush");
-            $("#pet").attr('class', "nes-icon close is-large");
-        }
-    }
-    else if(pet.happiness > 0 && pet.happiness <= 10){
-        pet.happiness--;
-        $(".happy_meter li").first().remove();
-    }
-};
 
-$("#play_button").click(function(){
-    if(pet.happiness > 0 && pet.happiness <= 10){
-        $(".happy_meter").append(happyIcon);
-        pet.happiness++;
-        $("#pet").animate({
-            "margin-top": "+=100px"
-        }, 500);
-        $("#pet").animate({
-            "margin-top": "-=100px"
-        }, 800);
-    }
-});
-const happyID = setInterval(happyFunction, 3000); 
+        else if(pet.happiness > 0 && pet.happiness <= 10){
+            pet.happiness--;
+            $(".happy_meter li").first().remove();
+        };
+    };
+
+    $("#play_button").click(function(){
+        if(pet.happiness > 0 && pet.happiness <= 10){
+            
+            $(".happy_meter").append(happyIcon);
+            pet.happiness++;
+            
+            $("#pet").animate({
+                "margin-top": "+=100px"
+            }, 500);
+            $("#pet").animate({
+                "margin-top": "-=100px"
+            }, 800);
+        }
+    });
+
+    const happyID = setInterval(happyFunction, 3000); 
+
 
 // REST
-
-
-const restFunction = function(){
-    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
-        clearInterval(restID);
-        if(pet.rest > 10){
-            $("#deathmessage").text("Game Over: Eternal Slumber");
-            $("#pet").attr('class', "nes-icon close is-large");
+    const restFunction = function(){
+        if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+            clearInterval(restID);
+            
+            if(pet.rest > 10){
+                $("#deathmessage").text("Game Over: Eternal Slumber");
+                $("#pet").attr('class', "nes-icon close is-large");
+            }
+            
+            else if(pet.rest == 0){
+                $("#deathmessage").text("Game Over: Lack of Sleep");
+                $("#pet").attr('class', "nes-icon close is-large");
+            };
         }
-        else if(pet.rest == 0){
-            $("#deathmessage").text("Game Over: Lack of Sleep");
-            $("#pet").attr('class', "nes-icon close is-large");
+        
+        else if($("#game_screen_container").hasClass("on")){
+            pet.rest--;
+            $(".rest_meter li").first().remove();
         }
-    }
-    else if($("#game_screen_container").hasClass("on")){
-        pet.rest--;
-        $(".rest_meter li").first().remove();
-    }
-    else if(pet.rest > 0 && pet.rest <= 10){
-        pet.rest++;
-        $(".rest_meter").append(restIcon);
+        
+        else if(pet.rest > 0 && pet.rest <= 10){
+            pet.rest++;
+            $(".rest_meter").append(restIcon);
+        };
     };
-};
 
-$("#light_button").click(function(){
-    $("#game_screen_container").toggleClass(); 
-    if($("#game_screen_container").hasClass("on")){
-        $("#game_screen_container").css("background-color","skyblue");
-        $("p").css("color","black")
-        $("#deathmessage").css("color", "black")
-    }
-    else{
-        $("#game_screen_container").css("background-color","black");
-        $("p").css("color", "white");
-        $("#deathmessage").css("color", "white");
-    }
-});
-const restID = setInterval(restFunction, 3000);
+    $("#light_button").click(function(){
+        $("#game_screen_container").toggleClass(); 
+    
+        if($("#game_screen_container").hasClass("on")){
+            $("#game_screen_container").css("background-color","skyblue");
+            $("p").css("color","black")
+            $("#deathmessage").css("color", "black")
+        }
+    
+        else{
+            $("#game_screen_container").css("background-color","black");
+            $("p").css("color", "white");
+            $("#deathmessage").css("color", "white");
+        }
+    });
+    
+    const restID = setInterval(restFunction, 3000);
 // HUNGER 
 
-const hungerFunction = function(){
-    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
-        clearInterval(hungerID);
-        if(pet.hunger == 0){
-            $("#deathmessage").text("Game Over: Starvation")
-            $("#pet").attr('class', "nes-icon close is-large");
-        }
-        else if(pet.hunger > 10){
-            $("#deathmessage").text("Game Over: Overconsumption")
-            $("#pet").attr('class', "nes-icon close is-large");
-        }
-    }
-    else if(pet.hunger > 0 && pet.hunger <= 10){
-        pet.hunger--;
-        $(".food_meter li").first().remove(); 
-    } 
-};
+    const hungerFunction = function(){
 
-$("#feed_button").click(function(){
-    if(pet.hunger > 0 && pet.hunger < 11){
-        $(".food_meter").append(foodIcon);
-        pet.hunger++;
-        $("#pet").animate({
-            "left":"+=200px"
-        }, 500);
-        $("#food").fadeIn(400);
-        $("#food").fadeOut(500);
-        
-        $("#pet").animate({
-            "left":"-=200px"
-        },1000);
-    }
-});
-const hungerID = setInterval(hungerFunction, 3500);
+        if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+            clearInterval(hungerID);
+
+            if(pet.hunger == 0){
+                $("#deathmessage").text("Game Over: Starvation")
+                $("#pet").attr('class', "nes-icon close is-large");
+            }
+
+            else if(pet.hunger > 10){
+                $("#deathmessage").text("Game Over: Overconsumption")
+                $("#pet").attr('class', "nes-icon close is-large");
+            };
+        }
+
+        else if(pet.hunger > 0 && pet.hunger <= 10){
+            pet.hunger--;
+            $(".food_meter li").first().remove(); 
+        } 
+    };
+
+    $("#feed_button").click(function(){
+
+        if(pet.hunger > 0 && pet.hunger < 11){
+            $(".food_meter").append(foodIcon);
+            pet.hunger++;
+
+            $("#pet").animate({
+                "left":"+=200px"
+            }, 500);
+
+            $("#food").fadeIn(400);
+            $("#food").fadeOut(500);
+            
+            $("#pet").animate({
+                "left":"-=200px"
+            },1000);
+        }
+    });
+    
+    const hungerID = setInterval(hungerFunction, 3500);
 };
