@@ -7,7 +7,7 @@
     <title>Tomagatchi</title>
 
     <!-- Scripts -->
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="styles/styles.css"/>
@@ -15,48 +15,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div id="game_screen">
-        <!-- Pet Morph Meter -->
-        <progress class="nes-progress is-error" value="100" max="100"></progress>
-        <!-- Pet Name + Age -->
-        <div class="petInfo">
-            <p>Name:</p>
-            <p>Age:</p>
-        </div>
-        <!-- Pet Image -->
-        <div class="petObject">
-            <i id="pet" class="nes-mario" width="200px" height="200px"></i>
-        </div>
-        <!-- Pet Metrics -->
-        <div class="pet_meters">
+    <div id="game_screen_container" class="on">
+        <!-- user names pet here -->
+        <section class="name_pet">
+            <form action="">
+                <div class="name-box-content">
+                    <h3 class="pre-game">Choose the name of your hatchling</h3>
+                    <input id="get_name" type="text">
+                    <button id="name_button">Enter</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="game_screen">
+            <!-- Pet Morph Meter -->
+            <progress class="nes-progress is-error" value="100" max="100"></progress>
+            <!-- Pet Name + Age -->
+            <div class="petInfo">
+                <p>Name:<span id="pet_name"></span></p>
+                <p>Age:</p>
+            </div>
+            <!-- Pet Image -->
+            <div class="petObject">
+                <i id="pet" class="nes-mario" width="200px" height="200px"></i>
+            </div>
+            <!-- Pet Metrics -->
+            <div class="pet_meters">
+                
+                <ul class="food_meter"> 
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                </ul>
             
-            <ul class="food_meter"> 
-                <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-                <li><i class="fa fa-cutlery" aria-hidden="true"></i></li>
-            </ul>
-        
-            <ul class="rest_meter">
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
-            </ul>
-        
-            <ul class="happy_meter">
-                <li><i class="fa fa-question" aria-hidden="true"></i></li>
-                <li><i class="fa fa-question" aria-hidden="true"></i></li>
-                <li><i class="fa fa-question" aria-hidden="true"></i></li>
-            </ul>
+                <ul class="rest_meter">
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>
+                </ul>
+            
+                <ul class="happy_meter">
+                    <li><i class="fa fa-question" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-question" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-question" aria-hidden="true"></i></li>
+                </ul>
+            </div>
         </div>
-    
     </div>
 
     <div id="game_keypad">
@@ -102,7 +114,7 @@
                 <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
             </ul>
         </div>
-        
+
     </div>
 
 </body>
