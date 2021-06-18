@@ -32,6 +32,7 @@ const pet = {
 const start = function start(){
     setInterval(ageFunction, 1000); 
     setInterval(hungerFunction, 2000);
+    setInterval(restFunction, 3000);
 }
 
 
@@ -61,11 +62,41 @@ const ageFunction = function ageFunction() {
 
 // $("#play_button")
 
+// Rest ----------------
 
 // Rest Function
-// $("#light_button")
+// Rest Button
+const restFunction = function restFunction(){
+    if($("#game_screen_container").hasClass("on")){
+        pet.rest--;
+        $(".rest_meter li").first().remove();
+            if(pet.rest == 0){
+                $("#deathmessage").text("Game Over: Lack of Sleep");
+            }
+    }
+    else if(pet.rest > 0 && pet.rest <= 10){
+        pet.rest++;
+        $(".rest_meter").append(restIcon);
+        if(pet.rest > 10){
+            $("#deathmessage").text("Game Over: Eternal Slumber");
+    }
+};
+};
+
+$("#light_button").click(function(){
+    $("#game_screen_container").toggleClass(); 
+    if($("#game_screen_container").hasClass("on")){
+        $("#game_screen_container").css("background-color","white");
+        $("p").css("color","black")
+    }
+    else{
+        $("#game_screen_container").css("background-color","black");
+        $("p").css("color", "white");
+    }
+})
 
 // HUNGER ------------
+
 // Hunger Function 
 const hungerFunction = function hungerFunction(){
     if(pet.hunger > 0 && pet.hunger <= 10){
