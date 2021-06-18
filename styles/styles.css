@@ -28,9 +28,14 @@ body{
 }
 
 #pet {
-    left: 45%; 
-    margin-top: 15%; 
-    
+    position: absolute; 
+    top: 45%;
+    left: 48%; 
+}
+
+#food{
+    margin-left: 500px; 
+    margin-top: 35px; 
 }
 
 progress{

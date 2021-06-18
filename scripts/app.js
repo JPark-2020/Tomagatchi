@@ -23,25 +23,22 @@ $("#name_button").click(function(){
 // Pet Object Starting values 
 const pet = {
     age: 1,
-    hunger: 4,
+    hunger: 7,
     rest: 7,
-    happiness: 3,
+    happiness: 7,
 };
 
 
-const start = function start(){
-    const ageID = setInterval(ageFunction, 1000); 
-    const hungerID = setInterval(hungerFunction, 2000);
-    const restID = setInterval(restFunction, 3000);
-    const happyID = setInterval(happyFunction, 1000);
-
-};
-
+const start = function(){
 
 // Age Function
-const ageFunction = function ageFunction() {
+
+const ageFunction = function() {
     // Increase pet age until no longer < 50 
-    if(pet.age<50){
+    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+        clearInterval(ageID)
+    }
+    else if(pet.age<50){
         pet.age++;
         $("#pet_age").text(pet.age); 
     // Increase pet age until < 100 and change pet into ash upon >= 50 
@@ -53,21 +50,27 @@ const ageFunction = function ageFunction() {
     } else {
         $("#pet_age").text(pet.age);
         $("#pet").attr('class', "nes-mario");
+        clearInterval(ageID);
     }
 };
 
+const ageID = setInterval(ageFunction, 1800);
+
 
 // HAPPINESS
-const happyFunction = function happyFunction() {
-    if(pet.happiness > 0 && pet.happiness <= 10){
+const happyFunction = function() {
+    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+        clearInterval(happyID);
+        if(pet.happiness === 0){
+            $("#deathmessage").text("Game Over: Much sadness")
+        }
+        else if(pet.happiness === 11){
+            $("#deathmessage").text("Game Over: Adrenaline Rush");
+        }
+    }
+    else if(pet.happiness > 0 && pet.happiness <= 10){
         pet.happiness--;
         $(".happy_meter li").first().remove();
-    }
-    else if(pet.happiness == 0){
-        $("#deathmessage").text("Game Over: Much sadness")
-    }
-    else{
-        $("#deathmessage").text("Game Over: Adrenaline Rush");
     }
 };
 
@@ -75,27 +78,37 @@ $("#play_button").click(function(){
     if(pet.happiness > 0 && pet.happiness <= 10){
         $(".happy_meter").append(happyIcon);
         pet.happiness++;
+        $("#pet").animate({
+            "margin-top": "+=100px"
+        }, 500);
+        $("#pet").animate({
+            "margin-top": "-=100px"
+        }, 800);
     }
 });
+const happyID = setInterval(happyFunction, 3000); 
 
 // REST
 
 
-const restFunction = function restFunction(){
-    if($("#game_screen_container").hasClass("on")){
+const restFunction = function(){
+    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+        clearInterval(restID);
+        if(pet.rest > 10){
+            $("#deathmessage").text("Game Over: Eternal Slumber");
+        }
+        else if(pet.rest == 0){
+            $("#deathmessage").text("Game Over: Lack of Sleep");
+        }
+    }
+    else if($("#game_screen_container").hasClass("on")){
         pet.rest--;
         $(".rest_meter li").first().remove();
-            if(pet.rest == 0){
-                $("#deathmessage").text("Game Over: Lack of Sleep");
-            }
     }
     else if(pet.rest > 0 && pet.rest <= 10){
         pet.rest++;
         $(".rest_meter").append(restIcon);
-        if(pet.rest > 10){
-            $("#deathmessage").text("Game Over: Eternal Slumber");
-    }
-};
+    };
 };
 
 $("#light_button").click(function(){
@@ -108,25 +121,40 @@ $("#light_button").click(function(){
         $("#game_screen_container").css("background-color","black");
         $("p").css("color", "white");
     }
-})
-
+});
+const restID = setInterval(restFunction, 4000);
 // HUNGER 
 
-const hungerFunction = function hungerFunction(){
-    if(pet.hunger > 0 && pet.hunger <= 10){
+const hungerFunction = function(){
+    if(pet.age == 100 || pet.hunger == 0 || pet.hunger == 11 || pet.rest == 0 || pet.rest == 11 || pet.happiness == 0 || pet.happiness == 11){
+        clearInterval(hungerID);
+        if(pet.hunger == 0){
+            $("#deathmessage").text("Game Over: Starvation")
+        }
+        else if(pet.hunger > 10){
+            $("#deathmessage").text("Game Over: Overconsumption")
+        }
+    }
+    else if(pet.hunger > 0 && pet.hunger <= 10){
         pet.hunger--;
         $(".food_meter li").first().remove(); 
-    } else if(pet.hunger == 0){
-        $("#deathmessage").text("Game Over: Starvation")
-    } else {
-        $("#deathmessage").text("Game Over: Overconsumption")
-    }
+    } 
 };
 
 $("#feed_button").click(function(){
     if(pet.hunger > 0 && pet.hunger < 11){
         $(".food_meter").append(foodIcon);
         pet.hunger++;
+        $("#pet").animate({
+            "margin-left":"+=200px"
+        }, 500);
+        $("#food").fadeIn(400);
+        $("#food").fadeOut(500);
+        
+        $("#pet").animate({
+            "margin-left":"-=200px"
+        },1000);
     }
 });
-
+const hungerID = setInterval(hungerFunction, 3500);
+};
