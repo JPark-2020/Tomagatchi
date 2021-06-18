@@ -2,7 +2,6 @@ const foodIcon = '<li><i class="fa fa-cutlery" aria-hidden="true"></i></li>'
 const restIcon = '<li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>'
 const happyIcon = '<li><i class="fa fa-paw" aria-hidden="true"></i></li>'
 
-
 // Get the name that User sets for the pet
 const getName = function getName(){
     document.getElementById('pet_name').innerHTML = document.getElementById("get_name").value;
@@ -27,14 +26,16 @@ const pet = {
     hunger: 4,
     rest: 7,
     happiness: 3,
-}
+};
+
 
 const start = function start(){
-    setInterval(ageFunction, 1000); 
-    setInterval(hungerFunction, 2000);
-    setInterval(restFunction, 3000);
-    setInterval(happyFunction, 1000);
-}
+    const ageID = setInterval(ageFunction, 1000); 
+    const hungerID = setInterval(hungerFunction, 2000);
+    const restID = setInterval(restFunction, 3000);
+    const happyID = setInterval(happyFunction, 1000);
+
+};
 
 
 // Age Function
@@ -56,7 +57,7 @@ const ageFunction = function ageFunction() {
 };
 
 
-// Happiness Function
+// HAPPINESS
 const happyFunction = function happyFunction() {
     if(pet.happiness > 0 && pet.happiness <= 10){
         pet.happiness--;
@@ -77,9 +78,8 @@ $("#play_button").click(function(){
     }
 });
 
-// REST ----------------
+// REST
 
-// Rest Function
 
 const restFunction = function restFunction(){
     if($("#game_screen_container").hasClass("on")){
@@ -97,7 +97,7 @@ const restFunction = function restFunction(){
     }
 };
 };
-// Rest Button
+
 $("#light_button").click(function(){
     $("#game_screen_container").toggleClass(); 
     if($("#game_screen_container").hasClass("on")){
@@ -110,9 +110,8 @@ $("#light_button").click(function(){
     }
 })
 
-// HUNGER ------------
+// HUNGER 
 
-// Hunger Function 
 const hungerFunction = function hungerFunction(){
     if(pet.hunger > 0 && pet.hunger <= 10){
         pet.hunger--;
@@ -123,26 +122,11 @@ const hungerFunction = function hungerFunction(){
         $("#deathmessage").text("Game Over: Overconsumption")
     }
 };
-// Hunger Button
+
 $("#feed_button").click(function(){
     if(pet.hunger > 0 && pet.hunger < 11){
         $(".food_meter").append(foodIcon);
         pet.hunger++;
     }
-})
+});
 
-// ----------------
-
-// // Sample function to run 
-// function alertMe(){
-//     alert('hi')
-// }
-
-// // Invoke Function every 5 seconds 
-// setInterval(alertMe, 5000)
-
-// // Save id value returned by set interval
-// const timerId = setInterval(alertMe, 5000)
-
-// // To stop this function from working pass into clearInterval
-// clearInterval(timerId)
