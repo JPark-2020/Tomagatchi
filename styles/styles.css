@@ -9,6 +9,7 @@ body{
     margin: auto; 
     background-color: white; 
     margin-top: 20rem;  
+    box-shadow: 10px 5px 5px rgba(0, 0, 255, .2);
 }
 #game_screen{ 
     display: none; 
@@ -23,6 +24,7 @@ body{
     margin-bottom: 20rem; 
     border-bottom-left-radius: 30%; 
     border-bottom-right-radius: 30%; 
+    box-shadow: 10px 5px 5px rgba(0, 0, 255, .2);
 }
 
 #pet {
