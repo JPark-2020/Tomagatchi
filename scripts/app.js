@@ -1,6 +1,6 @@
-var foodIcon = '<li><i class="fa fa-cutlery" aria-hidden="true"></i></li>'
-var restIcon = '<li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>'
-const happyIcon = '<li><i class="fa fa-question" aria-hidden="true"></i></li>'
+const foodIcon = '<li><i class="fa fa-cutlery" aria-hidden="true"></i></li>'
+const restIcon = '<li><i class="fa fa-lightbulb-o" aria-hidden="true"></i></li>'
+const happyIcon = '<li><i class="fa fa-paw" aria-hidden="true"></i></li>'
 
 
 // Get the name that User sets for the pet
@@ -33,6 +33,7 @@ const start = function start(){
     setInterval(ageFunction, 1000); 
     setInterval(hungerFunction, 2000);
     setInterval(restFunction, 3000);
+    setInterval(happyFunction, 1000);
 }
 
 
@@ -56,16 +57,30 @@ const ageFunction = function ageFunction() {
 
 
 // Happiness Function
-// const happyFunction = function happyFunction() {
+const happyFunction = function happyFunction() {
+    if(pet.happiness > 0 && pet.happiness <= 10){
+        pet.happiness--;
+        $(".happy_meter li").first().remove();
+    }
+    else if(pet.happiness == 0){
+        $("#deathmessage").text("Game Over: Much sadness")
+    }
+    else{
+        $("#deathmessage").text("Game Over: Adrenaline Rush");
+    }
+};
 
-// }
+$("#play_button").click(function(){
+    if(pet.happiness > 0 && pet.happiness <= 10){
+        $(".happy_meter").append(happyIcon);
+        pet.happiness++;
+    }
+});
 
-// $("#play_button")
-
-// Rest ----------------
+// REST ----------------
 
 // Rest Function
-// Rest Button
+
 const restFunction = function restFunction(){
     if($("#game_screen_container").hasClass("on")){
         pet.rest--;
@@ -82,7 +97,7 @@ const restFunction = function restFunction(){
     }
 };
 };
-
+// Rest Button
 $("#light_button").click(function(){
     $("#game_screen_container").toggleClass(); 
     if($("#game_screen_container").hasClass("on")){
