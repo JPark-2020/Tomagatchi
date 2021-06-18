@@ -80,7 +80,7 @@ const ageFunction = function() {
         }
     };
 
-const ageID = setInterval(ageFunction, 1800);
+const ageID = setInterval(ageFunction, 100);
 
 
 // HAPPINESS
@@ -145,12 +145,14 @@ const restFunction = function(){
 $("#light_button").click(function(){
     $("#game_screen_container").toggleClass(); 
     if($("#game_screen_container").hasClass("on")){
-        $("#game_screen_container").css("background-color","white");
+        $("#game_screen_container").css("background-color","skyblue");
         $("p").css("color","black")
+        $("#deathmessage").css("color", "black")
     }
     else{
         $("#game_screen_container").css("background-color","black");
         $("p").css("color", "white");
+        $("#deathmessage").css("color", "white");
     }
 });
 const restID = setInterval(restFunction, 3000);
