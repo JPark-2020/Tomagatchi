@@ -118,15 +118,15 @@ const start = function(){
             pet.happiness++;
             
             $("#pet").animate({
-                "margin-top": "+=100px"
-            }, 500);
+                "margin-top": "+=200px"
+            }, 300);
             $("#pet").animate({
-                "margin-top": "-=100px"
-            }, 800);
+                "margin-top": "-=200px"
+            }, 500);
         }
     });
 
-    const happyID = setInterval(happyFunction, 3000); 
+    const happyID = setInterval(happyFunction, 5000); 
 
 
 // REST
@@ -172,7 +172,7 @@ const start = function(){
         }
     });
     
-    const restID = setInterval(restFunction, 2500);
+    const restID = setInterval(restFunction, 4000);
 // HUNGER 
 
     const hungerFunction = function(){
@@ -205,16 +205,16 @@ const start = function(){
 
             $("#pet").animate({
                 "left":"+=200px"
-            }, 500);
+            }, 300);
 
             $("#food").fadeIn(400);
             $("#food").fadeOut(500);
             
             $("#pet").animate({
                 "left":"-=200px"
-            },1000);
+            },600);
         }
     });
     
-    const hungerID = setInterval(hungerFunction, 2000);
+    const hungerID = setInterval(hungerFunction, 3500);
 };
