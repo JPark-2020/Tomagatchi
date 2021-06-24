@@ -3,7 +3,7 @@
 To play game: https://jpark-2020.github.io/Tomagatchi-v2/
 
 Wireframe: 
-![wireframe](images/wireframeproj0.png)
+![wireframe](images/wireframetomagatchi.png)
 
 
 
