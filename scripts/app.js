@@ -85,7 +85,7 @@ const start = function(){
             }
     };
 
-    const ageID = setInterval(ageFunction, 100);
+    const ageID = setInterval(ageFunction, 1500);
 
 
 // HAPPINESS
@@ -172,7 +172,7 @@ const start = function(){
         }
     });
     
-    const restID = setInterval(restFunction, 3000);
+    const restID = setInterval(restFunction, 2500);
 // HUNGER 
 
     const hungerFunction = function(){
@@ -216,5 +216,5 @@ const start = function(){
         }
     });
     
-    const hungerID = setInterval(hungerFunction, 3500);
+    const hungerID = setInterval(hungerFunction, 2000);
 };
