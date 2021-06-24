@@ -85,7 +85,7 @@ const start = function(){
             }
     };
 
-    const ageID = setInterval(ageFunction, 3000);
+    const ageID = setInterval(ageFunction, 1200);
 
 
 // HAPPINESS
